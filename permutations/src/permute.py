@@ -5,38 +5,42 @@ Created on 08.03.2020
 '''
 
 
-# parameter: a list [1,2,3]
-# result: a list of lists [[1,2,3],[1,3,2],...]
-def permute (myList):
-    return permute_prefix ([], myList)
+def permute (alist, prefix = [], debug = False):
+    """Example function with types documented in the docstring.
 
+    Returns a list of list with all permutations of the input list alist
+    each sublist starts with the prefix followed by a permutation of alist
 
-# returns a list of list; each sublist starts with prefix followed by a
-# permutation of rest_list
-# arguments: prefix: a list
-#            rest_list: a list
-def permute_prefix (prefix, rest_list, debug = False):
+    Args:
+        alist: the list to be permuted 
+        prefix: the prefix of each sublist. needed for recursion
+
+    Returns:
+        a list of lists
+
+    """    
     if debug:
-        print ('{2}permute_prefix ({0}, {1})'.format (str(prefix), str(rest_list), '-' * len(prefix)))
+        print ('{2}permute ({0}, {1})'.format (str(prefix), str(alist), '-' * len(prefix)))
         
-    if 0 == len (rest_list):
+    if 0 == len (alist):
         return [prefix]
     
-    elif 1 == len (rest_list):
-        return [ prefix + rest_list ]
+    elif 1 == len (alist):
+        return [ prefix + alist ]
     
     else:
         result = []
          
-        for i in range (0, len(rest_list)):
-            first_half = rest_list[:i]
-            second_half = rest_list [i + 1:]
-            new_permutations = permute_prefix (prefix + [rest_list[i]], first_half + second_half)
+        for i in range (0, len(alist)):
+            first_half = alist[:i]
+            second_half = alist [i + 1:]
+            new_permutations = permute (first_half + second_half, prefix + [alist[i]], debug)
             result += new_permutations
             
         return result
 
 
 if __name__ == '__main__':
-    print (permute ([1, 2, 3, 4]))
+#    print (permute ([1, 2, 3, 4]))
+    pass
 

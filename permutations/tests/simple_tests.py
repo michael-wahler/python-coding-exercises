@@ -8,10 +8,11 @@ import math
 from src.permute import permute
 
 
-def permutationLength (original_list, permutations):
+def permutationLength (original_list, permutations, debug = False):
     orig = len (original_list)
     perms = len (permutations)
-    print ('  {0} = {1}!'.format(perms, orig))
+    if debug:
+        print ('  {0} = {1}!'.format(perms, orig))
     return perms == math.factorial (orig)
 
 
@@ -44,23 +45,12 @@ class Test(unittest.TestCase):
                     ]
         
         for l in test_lists:
-            self.assertTrue(permutationLength(l, permute(l)))
+            self.assertTrue(permutationLength(l, permute(l, [], False)))
         
-        # self.assertTrue(permutationLength([1], [[1]]))
+    def testRandomLists (self):
+        pass
+        # TODO: generate random list, check length, check if each element of the result is a permutation, check for no duplicates?
                         
-#     def testSimple(self):
-#         i = 1
-#         mylist = [1, 2, 3, 4]
-#         first_half = mylist[:i]
-#         second_half = mylist[i + 1:]
-#         print (first_half)
-#         print (mylist[i])
-#         print (second_half)
-# 
-#         x = [1, 2]
-#         y = [3, 4]
-#         print (x + y)
-
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.testPermutations']
