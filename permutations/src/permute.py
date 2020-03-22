@@ -24,9 +24,6 @@ def permute (alist, prefix = [], debug = False):
     if 0 == len (alist):
         return [prefix]
     
-    elif 1 == len (alist):
-        return [ prefix + alist ]
-    
     else:
         result = []
          
@@ -40,6 +37,6 @@ def permute (alist, prefix = [], debug = False):
 
 
 if __name__ == '__main__':
-#    print (permute ([1, 2, 3, 4]))
+    print (permute ([1, 2, 3, 4]))
     pass
 
