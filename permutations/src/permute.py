@@ -6,8 +6,7 @@ Created on 08.03.2020
 
 
 def permute (alist, prefix = [], debug = False):
-    """Example function with types documented in the docstring.
-
+    """
     Returns a list of list with all permutations of the input list alist
     each sublist starts with the prefix followed by a permutation of alist
 
