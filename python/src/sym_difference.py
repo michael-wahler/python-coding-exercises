@@ -7,8 +7,6 @@ Created on 21.06.2020
 
 def symmetric_difference (set_a, set_b):
     return set_a.difference(set_b).union(set_b.difference(set_a))
-    return result
-
 
 if __name__ == '__main__':
     print (symmetric_difference (set(),set()))
